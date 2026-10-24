@@ -1,0 +1,47 @@
+[
+  {
+    "content": "BLAKE3 proof fixture 0 α\r\n尾\n",
+    "proof": {
+      "exists": true,
+      "key": "0f9210410a6fadc2d7ec79f053f4cb19c46467b80d5166ff5706548dc570df7f",
+      "max_levels": 256,
+      "root": "ff50388641c7a7417e45b27a52accab6c716180cb0996c5e69ff5cac6e77cef5",
+      "siblings": "04000000",
+      "siblings_encoding": "arbo-packed-hex",
+      "statement_hash": "blake3",
+      "tree_hash": "blake3",
+      "value": "",
+      "version": 1
+    }
+  },
+  {
+    "content": "BLAKE3 proof fixture 0 α\r\n尾\n",
+    "proof": {
+      "exists": true,
+      "key": "0f9210410a6fadc2d7ec79f053f4cb19c46467b80d5166ff5706548dc570df7f",
+      "max_levels": 256,
+      "root": "46680643304584ac649075da92f16e99d84a69232d2df8a6cdd2f625aa787076",
+      "siblings": "850001008737f43c21006becaf31a3c51430f54b0780cfb73a29737575a0b101f2e0cda13519fc396e29abe716a145de03a797d1e5535e06bd2f286af9cb500c44eddfca9f3fc06beffce28bb7a42342f3b018311814055436cecac1d6c16dec1cbde8a595f7fb3422c4e905e768254c6bc88f9d8ee3926c91210542e8f61e9659567a2f25",
+      "siblings_encoding": "arbo-packed-hex",
+      "statement_hash": "blake3",
+      "tree_hash": "blake3",
+      "value": "",
+      "version": 1
+    }
+  },
+  {
+    "content": "BLAKE3 proof fixture 20 α\r\n尾\n",
+    "proof": {
+      "exists": true,
+      "key": "4638fc66f3cbedff03a11695bb8b98f3b23d02685dbc28ba6a5c45e67b25c5d3",
+      "max_levels": 256,
+      "root": "46680643304584ac649075da92f16e99d84a69232d2df8a6cdd2f625aa787076",
+      "siblings": "850001000f9020aad0b10ef931ec56b619bcdd522d1f12634f8b2f699fd6c76751c243da9a23ed1a54b9eb40cac45fce102b324c8fac145279374a48d84ef47d2fac64f9528e1d6a5ac91de63c11d7125a51f2c0aee1e72722d7ae1974dcfd96be06dbb8dcaee8ea2b16b62ce67a6c972c818516f1cfde2f2ec6608008bfca660d8b610fca",
+      "siblings_encoding": "arbo-packed-hex",
+      "statement_hash": "blake3",
+      "tree_hash": "blake3",
+      "value": "",
+      "version": 1
+    }
+  }
+]

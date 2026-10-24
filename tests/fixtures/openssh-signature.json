@@ -1,0 +1,10 @@
+{
+  "text": "Exact α\r\n尾\n",
+  "signature": {
+    "format": "sshsig",
+    "namespace": "statement@ontic.space",
+    "public_key": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHU4fVTW8MU4mEJsnUCF5zzP5XejN5Eww7SmLtUQ/TwI dev@codex\n",
+    "fingerprint": "SHA256:Fj8SdBeIFuP4e/3kathzAcKMvkG5+DqnitZdfexVdks",
+    "signature": "-----BEGIN SSH SIGNATURE-----\nU1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAgdTh9VNbwxTiYQmydQIXnPM/ld6\nM3kTDDtKYu1RD9PAgAAAAVc3RhdGVtZW50QG9udGljLnNwYWNlAAAAAAAAAAZzaGE1MTIA\nAABTAAAAC3NzaC1lZDI1NTE5AAAAQPdS6aIEdcirK1pUO4zxMJsB3XsqxrlE/pbWgMO4pd\njsi6UsTGcjjquCi1O/waZ9940jl8a3zF6abyTq2l5KoA8=\n-----END SSH SIGNATURE-----\n"
+  }
+}

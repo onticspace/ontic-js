@@ -1,0 +1,82 @@
+[
+  {
+    "content": "Exact α\r\n尾\n  ",
+    "phase": "single leaf",
+    "proof": {
+      "exists": true,
+      "key": "238e58634f1556481fa2475b404e2f22fdea97f194268a6b35f3318dd3478db6",
+      "max_levels": 256,
+      "root": "3e9bab00251e0804ce0a5fbfbdb4c1b9fdcdbf0d98ac78fd76f5e32244f4778b",
+      "siblings": "04000000",
+      "siblings_encoding": "arbo-packed-hex",
+      "statement_hash": "blake2b-256",
+      "tree_hash": "sha256",
+      "value": "",
+      "version": 1
+    }
+  },
+  {
+    "content": "Exact α\r\n尾\n  ",
+    "phase": "batch with deep branch",
+    "proof": {
+      "exists": true,
+      "key": "238e58634f1556481fa2475b404e2f22fdea97f194268a6b35f3318dd3478db6",
+      "max_levels": 256,
+      "root": "6078adaaae9f856d19a5dd15f7e353f21a04e2bb8714d59754a964229d185297",
+      "siblings": "87000300070010c37d4380f1afaeaf584b3c5b10795b112d99516f418e27950de16c808933ca2d69758535853579ea47da9b7a66b5b4c14a6b5153329eb8ea0acc0a3b719cb415e5ee1bc33760f5a0e8731ef8561309f47285e5f061c6fb824fe592f93c6e1ff6de29d0e45396878be34217b1f269b0022e7b1c36ad2138bab1679774a7fba4a3",
+      "siblings_encoding": "arbo-packed-hex",
+      "statement_hash": "blake2b-256",
+      "tree_hash": "sha256",
+      "value": "",
+      "version": 1
+    }
+  },
+  {
+    "content": "another statement",
+    "phase": "batch with deep branch",
+    "proof": {
+      "exists": true,
+      "key": "2027d5345f2deb472da80d90fa6252aaefede8f54a2720511b683bd41cb2a275",
+      "max_levels": 256,
+      "root": "6078adaaae9f856d19a5dd15f7e353f21a04e2bb8714d59754a964229d185297",
+      "siblings": "25000100017fd639d0a3b46e66296ea3b0161b6b262ddb2adc0b6a499f50efd3b5c8aead11",
+      "siblings_encoding": "arbo-packed-hex",
+      "statement_hash": "blake2b-256",
+      "tree_hash": "sha256",
+      "value": "",
+      "version": 1
+    }
+  },
+  {
+    "content": "{\"version\":1,\"ciphertext\":\"encrypted bytes\"}",
+    "phase": "batch with deep branch",
+    "proof": {
+      "exists": true,
+      "key": "65b4f32448084c481743b103ec5d49bbaf4f24b63881d363fe4f5250724b535c",
+      "max_levels": 256,
+      "root": "6078adaaae9f856d19a5dd15f7e353f21a04e2bb8714d59754a964229d185297",
+      "siblings": "4500010003c37d4380f1afaeaf584b3c5b10795b112d99516f418e27950de16c808933ca2d6096f6652a419275acf8a2a649b8bd924ebda6ad915a6af2bd78607843dc5bf0",
+      "siblings_encoding": "arbo-packed-hex",
+      "statement_hash": "blake2b-256",
+      "tree_hash": "sha256",
+      "value": "",
+      "version": 1
+    }
+  },
+  {
+    "content": "-----BEGIN AGE ENCRYPTED FILE-----\nopaque scheduled ciphertext\n-----END AGE ENCRYPTED FILE-----",
+    "phase": "batch with deep branch",
+    "proof": {
+      "exists": true,
+      "key": "ef79c60a86c374cb8835965474359c2949bd5769f522ccced6ce4b45d61707a6",
+      "max_levels": 256,
+      "root": "6078adaaae9f856d19a5dd15f7e353f21a04e2bb8714d59754a964229d185297",
+      "siblings": "6500010007c37d4380f1afaeaf584b3c5b10795b112d99516f418e27950de16c808933ca2d69758535853579ea47da9b7a66b5b4c14a6b5153329eb8ea0acc0a3b719cb41596d08d4cef90e53f397def51aaf16438ffc99feefbe938e7685e4df9e5187452",
+      "siblings_encoding": "arbo-packed-hex",
+      "statement_hash": "blake2b-256",
+      "tree_hash": "sha256",
+      "value": "",
+      "version": 1
+    }
+  }
+]
