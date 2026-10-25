@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ontic SDK · Profile example</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main>
+    <div class="example-content">
+    <div class="intro"><img src="onticspace.png"/> ONTIC SDK <span class="divider">/</span> PROFILE EXAMPLE</div>
+    <section class="profile" aria-label="Ontic profile">
+      <div class="portrait">
+        <span id="avatar-fallback" aria-hidden="true">?</span>
+        <img id="profile-picture" width="56" height="56" alt="" hidden>
+      </div>
+      <div class="identity">
+        <p class="eyebrow">CONNECTED IDENTITY</p>
+        <h1 id="username">Loading profile…</h1>
+      </div>
+      <button id="proofs-toggle" class="shield-button" type="button" aria-label="Verify identity proofs" title="Verify identity proofs" aria-expanded="false" aria-controls="proofs-tooltip" disabled>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4.5 6v5c0 4.5 3 7.9 7.5 10 4.5-2.1 7.5-5.5 7.5-10V6Z"/><path d="m8.5 11.5 2.3 2.3 4.7-4.7"/></svg>
+      </button>
+      <!-- A dialog-style tooltip supports clickable links and keyboard navigation. -->
+      <div id="proofs-tooltip" class="proofs-tooltip" role="dialog" aria-labelledby="proofs-heading" tabindex="-1" hidden>
+        <header class="proof-actions">
+          <h2 id="proofs-heading">Verify all with Ontic SDK:</h2>
+          <button id="verify-all" class="verify-button" type="button">Verify <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9l5 5v3"/><path d="M14 3v5h5M7 8h3M7 12h4M7 16h2"/><circle cx="16" cy="16" r="4"/><path d="m19 19 3 3"/></svg></button>
+        </header>
+        <ul id="proof-list"></ul>
+        <footer>
+          <p>Open a shield to verify its historical proof on Ontic Space.</p>
+          <p id="verification-status" role="status"></p>
+        </footer>
+      </div>
+    </section>
+    <p id="page-status" class="page-status" role="status">Loading example-proofs.json…</p>
+    <p class="caption">Your profile. Your connections. Independently verifiable.</p>
+    <p class="caption"><a href="https://github.com/onticspace/ontic-js" target="_blank">github.com/onticspace/ontic-js</a></p>
+    </div>
+    <aside class="how-it-works" aria-labelledby="how-it-works-title">
+      <h2 id="how-it-works-title">How this works?</h2>
+        <div class="how-it-works-content">
+          <ol>
+            <li><h3><svg class="how-it-works-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m12 3 8 3v5c0 5-8 10-8 10S4 16 4 11V6l8-3Z"/><path d="m8 12 3 3 5-6"/></svg><span>Prove account ownership</span></h3><p>Users prove account ownership on <a href="https://ontic.space" target="_blank" rel="noopener noreferrer">Ontic Space</a>.</p></li>
+            <li><h3><svg class="how-it-works-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Anchor the record in time</span></h3><p>Proof hashes are committed to Ethereum, establishing when the records existed.</p></li>
+            <li><h3><svg class="how-it-works-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="5" r="3"/><circle cx="5" cy="18" r="3"/><circle cx="19" cy="18" r="3"/><path d="m10.5 7.6-4 7.8m7-7.8 4 7.8M8 18h8"/></svg><span>Take the proof anywhere</span></h3><p>Any app can verify these dated proofs locally and on Ethereum, without calling Ontic Space.</p></li>
+          </ol>
+          <p>One contract read checks the committed hash; the SDK also verifies the network, block, and timestamp.</p>
+          <div class="sdk-note">
+            <h3><svg class="how-it-works-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 9v11"/></svg><span>Use your own interface</span></h3>
+            <p>This UI is just a demo. <a href="https://github.com/onticspace/ontic-js" target="_blank" rel="noopener noreferrer">ontic-js</a> fetches and verifies proofs. Integrate it into your own app style.</p>
+          </div>
+          <p class="how-it-works-takeaway">Cryptographically verify the ownership records linking a user’s accounts across platforms.</p>
+        </div>
+    </aside>
+  </main>
+  <footer class="site-footer"><a href="https://ontic.space" target="_blank">ontic.space</a></footer>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

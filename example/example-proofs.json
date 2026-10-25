@@ -1,0 +1,139 @@
+{
+  "version": 1,
+  "username": "arnaucube",
+  "profile_pic": "https://arnaucube.com/img/logoArnauCube_transparent.png",
+  "source_api": "https://ontic.space/api/v1",
+  "downloaded_at": "2026-10-25T19:24:39.049840+00:00",
+  "external_account_proofs": [
+    {
+      "ethereum_anchor": {
+        "status": "mined",
+        "chain_id": "11155111",
+        "contract_address": "0x705542739d468560821b993d7b0e6e1345f74d4b",
+        "root": "0x3b0c1d22bad4bcf55a58447f727b68d6270ceae9346ef5b4ef3e95dc8b7f558b",
+        "transaction_hash": "0x6d9ed97f89eabe9b357d0c665f87e66bcfbceaaf85a8dbf9ae6af16c509d273e",
+        "block_number": "11992915",
+        "block_hash": "0x17933a426eddd9bc5aa1b252f80841638bcb5ccfde5a9bda8be24151d010e0f6",
+        "block_timestamp": "2026-10-25T19:23:48Z"
+      },
+      "external_account": {
+        "id": "c322090f2fd4a6734cde4ff9b1d5e46b",
+        "content": "{\"type\":\"external-account-verification\",\"version\":1,\"entry_id\":\"bae2cc612d0617a9e879757b05de1afab0ea922d5336704bc8748b866c078624\",\"username\":\"arnaucube\",\"service\":\"Ethereum address\",\"account\":\"0xE933D4FAfA2a87Daa65b990daCb47dee3ba6F2C2\",\"identity_key\":\"ethereum:11155111:0xe933d4fafa2a87daa65b990dacb47dee3ba6f2c2\",\"target\":\"\",\"proof_method\":\"ethereum-erc191\",\"proof_resource\":\"eip155:11155111:0xE933D4FAfA2a87Daa65b990daCb47dee3ba6F2C2\",\"verified_at\":\"2026-10-25 19:22:38\"}",
+        "hash": "dc12a649d0d2fcd5008c2ecd8d56d6270e04f1cc8b4ef31a0adb71af9d2ccf8c",
+        "hash_algorithm": "blake3"
+      },
+      "info": "Historical registry attestation of external account ownership verification; not a user-signed statement or proof of current ownership.",
+      "merkle_proof": {
+        "version": 1,
+        "tree_hash": "blake3",
+        "statement_hash": "blake3",
+        "max_levels": 256,
+        "root": "3b0c1d22bad4bcf55a58447f727b68d6270ceae9346ef5b4ef3e95dc8b7f558b",
+        "key": "dc12a649d0d2fcd5008c2ecd8d56d6270e04f1cc8b4ef31a0adb71af9d2ccf8c",
+        "value": "",
+        "siblings": "850001000ff6a325b16c52199c59698734613159fbd8f9b34d00b77c7f56214e4e39194a3867518f972991b4d98536a49c36860743776c68f80c130d1559ea39dc8241ac7fdf1f2bac7b75bccbc40dd70119172c7d0716b03f893e4d0b26eae97d789851ab5021c73473d1a53614923f200d38d5789d2973999c28a70c46196a71844d6003",
+        "siblings_encoding": "arbo-packed-hex",
+        "exists": true
+      },
+      "version": 1
+    },
+    {
+      "ethereum_anchor": {
+        "status": "confirmed",
+        "chain_id": "11155111",
+        "contract_address": "0x705542739d468560821b993d7b0e6e1345f74d4b",
+        "root": "0x9bccdaa3d6a4e5b30eaca642d8510b475debf81f2259431b743dbbbd04582c3e",
+        "transaction_hash": "0x9027dd67977cf72bb7b97db6f90177a1c3c238d6b8674f5085bb70599f09a417",
+        "block_number": "11954640",
+        "block_hash": "0x2c665b4822008066f2e0994476b2832d81734a27fbe4030bde0a7681991274dd",
+        "block_timestamp": "2026-10-20T10:17:00Z"
+      },
+      "external_account": {
+        "id": "a9750267bac313ca43817a652ac77584",
+        "content": "{\"type\":\"external-account-verification\",\"version\":1,\"entry_id\":\"3838e454605369a1723a7c39b5d226ea6f03398a5b6356b1ce866ebf274eff7b\",\"username\":\"arnaucube\",\"service\":\"GitHub\",\"account\":\"arnaucube\",\"identity_key\":\"github:17317030\",\"target\":\"https://github.com/arnaucube\",\"proof_method\":\"github-gist\",\"proof_resource\":\"https://gist.github.com/arnaucube/3a9524950f8c7066e0e0952858e816ea\",\"verified_at\":\"2026-10-07 09:25:42\"}",
+        "hash": "ef591dde3c1251f9efdbf364db7e1b448e64825ef888a63174b7304b0e9dd0ae",
+        "hash_algorithm": "blake3"
+      },
+      "info": "Historical registry attestation of external account ownership verification; not a user-signed statement or proof of current ownership.",
+      "merkle_proof": {
+        "version": 1,
+        "tree_hash": "blake3",
+        "statement_hash": "blake3",
+        "max_levels": 256,
+        "root": "9bccdaa3d6a4e5b30eaca642d8510b475debf81f2259431b743dbbbd04582c3e",
+        "key": "ef591dde3c1251f9efdbf364db7e1b448e64825ef888a63174b7304b0e9dd0ae",
+        "value": "",
+        "siblings": "45000100030627bb5e919176942195375d03238b2d50c61b3b60648f9a848ec0edf5b02d7b8f264c7a796236b38bf7d10ba0866ec9e1181839af6d653c818f36306472eb9e",
+        "siblings_encoding": "arbo-packed-hex",
+        "exists": true
+      },
+      "version": 1
+    },
+    {
+      "ethereum_anchor": {
+        "status": "confirmed",
+        "chain_id": "11155111",
+        "contract_address": "0x705542739d468560821b993d7b0e6e1345f74d4b",
+        "root": "0x9bccdaa3d6a4e5b30eaca642d8510b475debf81f2259431b743dbbbd04582c3e",
+        "transaction_hash": "0x9027dd67977cf72bb7b97db6f90177a1c3c238d6b8674f5085bb70599f09a417",
+        "block_number": "11954640",
+        "block_hash": "0x2c665b4822008066f2e0994476b2832d81734a27fbe4030bde0a7681991274dd",
+        "block_timestamp": "2026-10-20T10:17:00Z"
+      },
+      "external_account": {
+        "id": "d7015ef53d34019a54aaf956cd59bcb3",
+        "content": "{\"type\":\"external-account-verification\",\"version\":1,\"entry_id\":\"c0ccc8b6122b4d4477fe505d988966299732da34fd5be058b7b09b17b5e30e84\",\"username\":\"arnaucube\",\"service\":\"website\",\"account\":\"https://arnaucube.com\",\"identity_key\":\"website:https://arnaucube.com\",\"target\":\"https://arnaucube.com\",\"proof_method\":\"website-file\",\"proof_resource\":\"https://arnaucube.com/.well-known/ontic-space.txt\",\"verified_at\":\"2026-10-07 09:22:41\"}",
+        "hash": "e1f2207aa654a6c6afe3817ba620c9ec1fe2ed37ec505ab35f94416fe9134c7f",
+        "hash_algorithm": "blake3"
+      },
+      "info": "Historical registry attestation of external account ownership verification; not a user-signed statement or proof of current ownership.",
+      "merkle_proof": {
+        "version": 1,
+        "tree_hash": "blake3",
+        "statement_hash": "blake3",
+        "max_levels": 256,
+        "root": "9bccdaa3d6a4e5b30eaca642d8510b475debf81f2259431b743dbbbd04582c3e",
+        "key": "e1f2207aa654a6c6afe3817ba620c9ec1fe2ed37ec505ab35f94416fe9134c7f",
+        "value": "",
+        "siblings": "850001001b0627bb5e919176942195375d03238b2d50c61b3b60648f9a848ec0edf5b02d7bef309f48f35d9e11aba0a869f575f6ce8e18ad3a2ca3e7ec13fdaa898a46e6343923e4e124cbb1d28d9b6b09a35cbe8e53fd4cec2894f81f025a704aef3111f9ac43ac89842bc74c01753a74744b2061d357ce9debeeb37318b9002be008af4d",
+        "siblings_encoding": "arbo-packed-hex",
+        "exists": true
+      },
+      "version": 1
+    }
+  ],
+  "organization_membership_proofs": [
+    {
+      "ethereum_anchor": {
+        "status": "confirmed",
+        "chain_id": "11155111",
+        "contract_address": "0x705542739d468560821b993d7b0e6e1345f74d4b",
+        "root": "0x3d2ad0ae8cc2a2cbc6dec95c2990454480294a84efd354f7f20b4a6cea2834fa",
+        "transaction_hash": "0x0e09a8c8b47de12a16d6d1578a6c8b760943251ae219bb3650b9bbd8f3e8af69",
+        "block_number": "11985609",
+        "block_hash": "0xbe316c86374be17c1724257b2a4a1053044af966c442497b3be512d511458b97",
+        "block_timestamp": "2026-10-24T18:39:12Z"
+      },
+      "info": "Historical registry attestation that an invited user accepted organization membership; not proof of current membership or a user signature.",
+      "merkle_proof": {
+        "version": 1,
+        "tree_hash": "blake3",
+        "statement_hash": "blake3",
+        "max_levels": 256,
+        "root": "3d2ad0ae8cc2a2cbc6dec95c2990454480294a84efd354f7f20b4a6cea2834fa",
+        "key": "5d8e0cccf590ac270e5d9973136d3ad884a91be54d6dc3dac13d65fa2001b32b",
+        "value": "",
+        "siblings": "850001000fcfe3d41f1379be920b1a4077fbb2c87ecfb5b76596ff360f8e7ab0e96f06f224291ad163c861f606f2967947a9b5221e5100f19f4780b68b7405f6a38b241329abdb4717d5e6ed01f5d42f2b9060fe65fa928b34c1c3ae01c827a0b54c95e133798c42dce87d2527691f05fd2fb52226b325b631a069f182bb4c0c490f1539a1",
+        "siblings_encoding": "arbo-packed-hex",
+        "exists": true
+      },
+      "organization_membership": {
+        "id": "1b367bd70c9ca5553e67e215858e32ff",
+        "content": "{\"type\":\"organization-membership-verification\",\"version\":1,\"membership_id\":\"468b920faeb2753d45ee5bcbebc944a9\",\"username\":\"arnaucube\",\"organization\":\"krulllabs\",\"invited_at\":\"2026-10-24 18:37:54\",\"recorded_at\":\"2026-10-24 18:38:05\"}",
+        "hash": "5d8e0cccf590ac270e5d9973136d3ad884a91be54d6dc3dac13d65fa2001b32b",
+        "hash_algorithm": "blake3"
+      },
+      "version": 1
+    }
+  ]
+}

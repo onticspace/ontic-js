@@ -105,6 +105,11 @@ test('client verification uses its backend credentials and caller RPC for both b
     const registry = calls.find(c => /\/statements\/|\/external-verifications\//.test(c.url));
     assert.equal(registry.options.headers.Authorization, entry.external_account ? 'Bearer alice-token' : undefined);
     assert.equal(calls.filter(c => c.url === endpoint).length, 4);
+    calls.length = 0;
+    const localResult = await client.verifyProofData(JSON.stringify(bundle), { publishing: bundle.ethereum_anchor });
+    assert.equal(localResult.author, 'alice');
+    assert.equal(calls.length, 4);
+    assert.ok(calls.every(call => call.url === endpoint));
     const unknown = structuredClone(bundle); unknown.ethereum_anchor.chain_id = '1';
     await assert.rejects(client.verifyStatementJSON(JSON.stringify(unknown), { publishing: unknown.ethereum_anchor }), /wrong network/);
   }

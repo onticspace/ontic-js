@@ -234,10 +234,11 @@ export async function verifyStatementEthereum(anchor, root, publishing, rpc) {
 }
 
 /** Perform every cryptographic check locally; registry reads only establish username attribution. */
-export async function verifyStatementJSON(text, { api, publishing, rpc, ethereumVerificationRPC, signal, progress = _message => {} }) {
+export async function verifyStatementJSON(text, { api, publishing, rpc, ethereumVerificationRPC, signal, progress = _message => {}, checkRegistry = true }) {
   const bundle = parseStatementBundle(text);
-  if (bundle.organization_membership) return verifyOrganizationMembershipBundle(bundle, { api, publishing, rpc, ethereumVerificationRPC, signal, progress });
-  if (bundle.external_account) return verifyExternalAccountBundle(bundle, { api, publishing, rpc, ethereumVerificationRPC, signal, progress });
+  requireCheck(!checkRegistry || typeof api === 'function', 'A registry API is required for registry verification.');
+  if (bundle.organization_membership) return verifyOrganizationMembershipBundle(bundle, { api: checkRegistry ? api : null, publishing, rpc, ethereumVerificationRPC, signal, progress });
+  if (bundle.external_account) return verifyExternalAccountBundle(bundle, { api: checkRegistry ? api : null, publishing, rpc, ethereumVerificationRPC, signal, progress });
   progress('Verifying content hash and SSH signature…');
   const { hash, fingerprint } = await verifyStatementSignature(bundle.statement, bundle.signature);
   signal?.throwIfAborted();
@@ -246,10 +247,12 @@ export async function verifyStatementJSON(text, { api, publishing, rpc, ethereum
   const root = verifyStatementMerkleProof(bundle.merkle_proof, hash);
   const statement = bundle.statement;
   requireCheck(typeof statement.id === 'string' && statement.id.length <= 128 && typeof statement.author === 'string' && /^[a-zA-Z0-9][a-zA-Z0-9_-]{0,38}$/.test(statement.author), 'Invalid statement ID or author.');
-  progress('Checking the signing key’s registry attribution…');
-  const saved = await api(`/statements/${encodeURIComponent(statement.id)}`, { signal });
-  const keyIdentity = key => typeof key === 'string' ? key.trim().split(/\s+/).slice(0, 2).join(' ') : '';
-  requireCheck(object(saved) && saved.author === statement.author && saved.kind === statement.kind && (!saved.hash_algorithm || saved.hash_algorithm === statement.hash_algorithm) && saved.hash?.toLowerCase() === bytesToHex(hash) && saved.signature?.fingerprint === fingerprint && keyIdentity(saved.signature?.public_key) === keyIdentity(bundle.signature.public_key), 'Author verification failed: the registry does not associate this signed statement with the claimed username.');
+  if (checkRegistry) {
+    progress('Checking the signing key’s registry attribution…');
+    const saved = await api(`/statements/${encodeURIComponent(statement.id)}`, { signal });
+    const keyIdentity = key => typeof key === 'string' ? key.trim().split(/\s+/).slice(0, 2).join(' ') : '';
+    requireCheck(object(saved) && saved.author === statement.author && saved.kind === statement.kind && (!saved.hash_algorithm || saved.hash_algorithm === statement.hash_algorithm) && saved.hash?.toLowerCase() === bytesToHex(hash) && saved.signature?.fingerprint === fingerprint && keyIdentity(saved.signature?.public_key) === keyIdentity(bundle.signature.public_key), 'Author verification failed: the registry does not associate this signed statement with the claimed username.');
+  }
   progress('Checking the Ethereum publication, block, and timestamp…');
   const evidence = await verifyStatementEthereum(bundle.ethereum_anchor, root, publishing, rpc || createVerificationRPC(ethereumVerificationRPC, signal));
   signal?.throwIfAborted();
@@ -282,9 +285,11 @@ async function verifyExternalAccountBundle(bundle, { api, publishing, rpc, ether
   signal?.throwIfAborted();
   // Confirm the record ID against the registry as well as verifying the typed hash.
   requireCheck(typeof entry.id === 'string' && /^[a-f0-9]{32}$/.test(entry.id), 'Invalid external verification ID.');
-  progress('Checking the registry’s external account attestation…');
-  const saved = await api(`/external-verifications/${encodeURIComponent(entry.id)}`, { signal });
-  requireCheck(saved?.external_account?.id === entry.id && saved.external_account.hash === entry.hash && saved.external_account.content === entry.content && saved.external_account.hash_algorithm === 'blake3', 'The registry does not attest to this external account verification.');
+  if (api) {
+    progress('Checking the registry’s external account attestation…');
+    const saved = await api(`/external-verifications/${encodeURIComponent(entry.id)}`, { signal });
+    requireCheck(saved?.external_account?.id === entry.id && saved.external_account.hash === entry.hash && saved.external_account.content === entry.content && saved.external_account.hash_algorithm === 'blake3', 'The registry does not attest to this external account verification.');
+  }
   progress('Checking the Ethereum publication, block, and timestamp…');
   const evidence = await verifyStatementEthereum(bundle.ethereum_anchor, root, publishing, rpc || createVerificationRPC(ethereumVerificationRPC, signal));
   signal?.throwIfAborted();
@@ -312,12 +317,20 @@ async function verifyOrganizationMembershipBundle(bundle, { api, publishing, rpc
   progress('Verifying Merkle inclusion proof…');
   const root = verifyStatementMerkleProof(bundle.merkle_proof, hash);
   signal?.throwIfAborted();
-  progress('Checking the registry’s historical membership attestation…');
-  const saved = await api(`/organization-membership-verifications/${encodeURIComponent(entry.id)}`, { signal });
-  const attestation = saved?.organization_membership;
-  requireCheck(attestation?.id === entry.id && attestation.hash === entry.hash && attestation.content === entry.content && attestation.hash_algorithm === 'blake3', 'The registry does not attest to this organization membership.');
+  if (api) {
+    progress('Checking the registry’s historical membership attestation…');
+    const saved = await api(`/organization-membership-verifications/${encodeURIComponent(entry.id)}`, { signal });
+    const attestation = saved?.organization_membership;
+    requireCheck(attestation?.id === entry.id && attestation.hash === entry.hash && attestation.content === entry.content && attestation.hash_algorithm === 'blake3', 'The registry does not attest to this organization membership.');
+  }
   progress('Checking the Ethereum publication, block, and timestamp…');
   const evidence = await verifyStatementEthereum(bundle.ethereum_anchor, root, publishing, rpc || createVerificationRPC(ethereumVerificationRPC, signal));
   signal?.throwIfAborted();
   return { type: 'organization-membership-verification', author: record.username, organization: record.organization, membershipID: record.membership_id, chainID: bundle.ethereum_anchor.chain_id, transactionHash: bundle.ethereum_anchor.transaction_hash, ...evidence };
+}
+
+/** Verify supplied evidence without registry requests. Publishing is application-trusted policy. */
+export function verifyProofData(text, { publishing, ...options } = {}) {
+  requireCheck(object(publishing) && typeof publishing.chain_id === 'string' && typeof publishing.contract_address === 'string', 'Trusted publishing chain_id and contract_address are required.');
+  return verifyStatementJSON(text, { ...options, publishing, checkRegistry: false });
 }

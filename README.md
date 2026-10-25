@@ -2,7 +2,7 @@
 
 ontic-js is a JavaScript SDK for integrating Ontic Space into web apps and other
 JavaScript applications. It provides account authentication, external-account
-ownership workflows, and independent verification of statements, external-account proofs and organization membership.
+ownership workflows, and independent verification of statements and external-account proofs.
 
 ## Add the dependency
 

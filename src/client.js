@@ -1,6 +1,6 @@
 import { createEntries } from './entries.js';
 import { createBackendClient } from './backend-client.js';
-import { createVerificationRPC, ethereumRPCURL, parseStatementBundle, verifyStatementJSON } from './verification.js';
+import { createVerificationRPC, ethereumRPCURL, parseStatementBundle, verifyStatementJSON, verifyProofData } from './verification.js';
 
 /** Stateful Ontic backend and verification client. RPC policy is always caller-owned. */
 export class OnticClient {
@@ -54,6 +54,24 @@ export class OnticClient {
   verifyOrganizationMembership(text, options) {
     if (!parseStatementBundle(text).organization_membership) throw new Error('An organization membership bundle is required.');
     return this.verifyStatementJSON(text, options);
+  }
+
+  /** Fetch a proof and publishing policy; performs no cryptographic verification. */
+  async fetchProofData(type, id, { signal } = {}) {
+    const resources = { statement: 'statements', external_account: 'external-verifications', organization_membership: 'organization-membership-verifications' };
+    if (!Object.hasOwn(resources, type)) throw new Error('Unsupported proof type.');
+    if (typeof id !== 'string' || !/^[a-zA-Z0-9_-]{1,128}$/.test(id)) throw new Error('A proof ID is required.');
+    const [proof, meta] = await Promise.all([
+      this.request(`/${resources[type]}/${encodeURIComponent(id)}`, { signal, private: type === 'external_account' && this.authenticated() }),
+      this.request('/meta', { signal }),
+    ]);
+    return { proof, publishing: meta.ethereum_root_publishing };
+  }
+
+  /** Verify supplied data using only the caller's Ethereum RPC, never the backend. */
+  verifyProofData(text, { publishing, signal, progress } = {}) {
+    return verifyProofData(text, { publishing, signal, progress,
+      rpc: createVerificationRPC(this.ethereumVerificationRPC, signal, this.#rpcFetcher) });
   }
 
   async verifyStatementJSON(text, { publishing, signal, progress } = {}) {

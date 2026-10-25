@@ -2,7 +2,7 @@ export { OnticClient, createOnticClient } from './client.js';
 export { APIError } from './backend-client.js';
 export {
   parseStatementBundle, verifyStatementSignature, verifyStatementMerkleProof,
-  verifyStatementEthereum, verifyStatementJSON, createVerificationRPC, statementVerificationMessage,
+  verifyStatementEthereum, verifyStatementJSON, verifyProofData, createVerificationRPC, statementVerificationMessage,
 } from './verification.js';
 export { signWalletMessage } from './wallet-signing.js';
 export { startGitHub, githubCallback } from './github-auth.js';
